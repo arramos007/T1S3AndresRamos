@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="T1S3AndresRamos.Page1">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="10" CornerRadius="0">
+                <Image Source="logouisrael.png"/>
+            </Frame>
+
+            <Entry x:Name="txtNotaSeguimiento1" 
+                   HorizontalTextAlignment="Center" 
+                   Placeholder="Nota Seguimiento 1" 
+                   Keyboard="Numeric"
+                   TextChanged="TextChanged"></Entry>
+            <Entry x:Name="txtNotaExamen1" 
+                   HorizontalTextAlignment="Center" 
+                   Placeholder="Nota Examen 1" 
+                   Keyboard="Numeric"
+                   TextChanged="TextChanged"></Entry>
+            <Label Text="Nota Parcial 1" FontSize="Title" Padding="30,10,30,10"/>
+            <Entry x:Name="txtNotaParcial1" 
+                   HorizontalTextAlignment="Center" 
+                   IsReadOnly="True"></Entry>
+
+
+            <Entry x:Name="txtNotaSeguimiento2" 
+                   HorizontalTextAlignment="Center" 
+                   Placeholder="Nota Seguimiento 2" 
+                   Keyboard="Numeric"
+                   TextChanged="TextChanged"></Entry>
+            <Entry x:Name="txtNotaExamen2" 
+                   HorizontalTextAlignment="Center" 
+                   Placeholder="Nota Examen 2" 
+                   Keyboard="Numeric"
+                   TextChanged="TextChanged"></Entry>
+            <Label Text="Nota Parcial 2" FontSize="Title" Padding="30,10,30,10"/>
+            <Entry x:Name="txtNotaParcial2" HorizontalTextAlignment="Center" IsReadOnly="True"></Entry>
+
+            <Label Text="Nota Final:" FontSize="Title" FontAttributes="Bold" Padding="30,10,30,10"/>
+            <Entry x:Name="txtNotaFinal" HorizontalTextAlignment="Center" IsReadOnly="True"></Entry>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
