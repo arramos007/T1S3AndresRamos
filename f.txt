@@ -1,0 +1,34 @@
+let
+    Tipo = if [#"TIPO MOV."] = null then ""
+        else Text.Upper(Text.Trim(Text.From([#"TIPO MOV."]))),
+
+    Acto = if [#"ACTO ADMINIS."] = null then ""
+        else Text.Trim(Text.From([#"ACTO ADMINIS."])),
+
+    Movimiento = if [#"NOMBRE MOV."] = null then ""
+        else Text.Upper(Text.Trim(Text.From([#"NOMBRE MOV."]))),
+
+    Emisor = if [#"NOMBRE DEL EMISOR/ENDOSANTE"] = null then ""
+        else Text.Upper(Text.Trim(Text.From([#"NOMBRE DEL EMISOR/ENDOSANTE"])))
+in
+    if Tipo = "CRE"
+        and Acto <> ""
+        and Text.Contains(Movimiento, "EMISI")
+        and Text.Contains(Emisor, "SRI")
+    then "ACREDITACION_SRI"
+
+    else if Tipo = "CRE"
+        and Acto = ""
+        and Text.Contains(Movimiento, "ENDOSO")
+    then "ENDOSO_RECIBIDO"
+
+    else if Tipo = "DEB"
+        and Acto = ""
+        and Text.Contains(Movimiento, "ENDOSO")
+    then "ENDOSO_REALIZADO"
+
+    else if Acto = ""
+        and Text.Contains(Movimiento, "UTILIZ")
+    then "UTILIZACION"
+
+    else "OTROS"
